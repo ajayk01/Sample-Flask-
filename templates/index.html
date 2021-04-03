@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Bootstrap Example</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Custom File</h2>
+  <p>Upload the image for processing    </p>
+  <form action = "http://localhost:5000/uploader" method = "POST" enctype = "multipart/form-data">
+        <p>Custom file:</p>
+             <div class="custom-file mb">
+                  <input type="file" class="custom-file-input" id="customFile" name="file-f">
+                  <label class="custom-file-label" for="customFile">Choose file Front side</label>  
+             </div> <br><br>
+      
+          <div class="custom-file mb">
+              <input type="file" class="custom-file-input" id="customFile" name="file-b">
+              <label class="custom-file-label" for="customFile">Choose file back side</label>
+           </div>
+          
+      
+          <div class="form-group"> <br>
+                  <label for="sel1">Select The Identity card</label>
+                  <select class="form-control" id="card-type" name="card-type">
+                        <option value="ration-card">Ration card</option>
+                        <option value="aadhar-card">Aadhar card</option>
+                        <option value="pan-card">Pan card</option>
+                        <option value="driving-card">Driving card</option>
+                  </select>
+                              <br>
+        </div>
+    
+    
+    
+    <div class="mt-1">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
+
+</body>
+</html>
